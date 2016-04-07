@@ -1,0 +1,2 @@
+#!/bin/sh
+/var/SMU/ReceiverTransmitter_Bluetooth 2 1 1 32 174 00:26:AD:05:11:7C

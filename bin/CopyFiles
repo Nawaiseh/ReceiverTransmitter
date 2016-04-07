@@ -1,0 +1,5 @@
+#!/bin/sh
+Number=$1
+mkdir /var/SMU
+cp /tmp/usb/ReceiverTransmitter_Bluetooth /var/SMU/
+cp /tmp/usb/appstart_final$Number /var/appstart_final

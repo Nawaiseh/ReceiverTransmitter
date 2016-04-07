@@ -16,13 +16,14 @@
 
 
 enum {
-    SEND_DSRC_MESSAGE = 0, RECEIVE_DSRC_MESSAGE
+	SEND_DSRC_MESSAGE = 0, RECEIVE_DSRC_MESSAGE
 };
+
+static int DSRC_SEND_CHANNEL = 174;
 
 static WMEApplicationRequest DSRC_RX_Entry;
 static WMEApplicationRequest DSRC_TX_Entry;
 
-static long long MyID_DSRC = 0;
 
 void DSRC_Signal_Interrupt(void);
 
@@ -40,7 +41,7 @@ int Initialize_DSRC_TX_Environment(int arg, char *argv[]);
 
 char *Dec2Hex(short Number);
 
-int UpdateIDBytes_______(double Value, BasicSafetyMessage_t *bsm, int Start);
+int UpdateIDBytes_______(BasicSafetyMessage_t *bsm, int Start);
 
 int UpdatePositionBytes_(double Value, BasicSafetyMessage_t *bsm, int Start);
 
@@ -55,12 +56,18 @@ long long Current_TimeStamp();
 
 int FillGPSInfo(BasicSafetyMessage_t *bsm);
 
-int BuildMessage();
+int BuildMessage(int Channel);
 
 int TransmitMessage();
 
-int Send_DSRC_Message();
+int Send_DSRC_Message(int Channel);
 
 int Receive_DSRC_Message();
 
-int SendReceive();
+int SendReceive(int Channel);
+
+void *DSRC_SEND_Thread(void *arg);
+
+void *DSRC_RECEIVE_Thread(void *arg);
+
+int IsThisCarIsMyCar(WSMMessage RecievedDSRCMessage);

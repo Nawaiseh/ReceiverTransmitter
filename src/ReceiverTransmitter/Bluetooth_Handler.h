@@ -37,20 +37,20 @@
 #define MAX_RSP 50
 // ~~~~~~~~~~~~~~~~~~  enums  ~~~~~~~~~~~~~~~~~~
 enum {
-    FALSE = 0, TRUE
+	FALSE = 0, TRUE
 };
 enum {
-    ADDR_MAC = 0, UINT8
+	ADDR_MAC = 0, UINT8
 };
 enum {
-    BluetoothConnectionLost = 0, BluetoothIsConnected = 1
+	BluetoothConnectionLost = 0, BluetoothIsConnected = 1
 };
 struct arguments {
-    u_int8_t macaddr[17];
-    u_int8_t channel;
+	u_int8_t macaddr[17];
+	u_int8_t channel;
 };
 
-static long long MyID_Bluetooth = 0;
+
 static uint64_t Bluetooth_Count = 0;
 static uint64_t Bluetooth_Blank = 0;
 static int pid;
